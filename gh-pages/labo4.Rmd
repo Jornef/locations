@@ -1,0 +1,61 @@
+---
+title: "Labo 4"
+author: "Jorne Franssen"
+date: "17 november 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#Locations
+
+```{r}
+#TECH
+library(leaflet)
+
+EAIcon <- makeIcon(
+  iconUrl = "http://pxl-ea-ict.be/trinity/images/2.png",
+  iconWidth = 160, iconHeight = 100,
+  iconAnchorX = 22, iconAnchorY = 94
+)
+
+#Business
+BusIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_business.png",
+  iconWidth = 160, iconHeight = 100,
+  iconAnchorX = 22, iconAnchorY = 94
+)
+
+#Education
+EDUIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_education.png",
+  iconWidth = 160, iconHeight = 100,
+  iconAnchorX = 22, iconAnchorY = 94
+)
+
+
+#Healthcare
+HCIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_healthcare.png",
+  iconWidth = 160, iconHeight = 100,
+  iconAnchorX = 22, iconAnchorY = 94
+)
+
+#IT
+ITIcon <- makeIcon(
+  iconUrl = "https://www.pxl.be/Assets/website/pxl_algemeen/afbeeldingen/grotere_versie/1314_logo_pxl_it.png",
+  iconWidth = 139, iconHeight = 93,
+  iconAnchorX = 22, iconAnchorY = 90
+)
+
+EA_map <- leaflet() %>% 
+  addTiles() %>%
+  addMarkers(lng=5.384984, lat=50.927781, icon = EAIcon)%>% 
+  addMarkers(lng=5.347592, lat=50.937732, icon = BusIcon)%>% 
+  addMarkers(lng=5.348628, lat=50.937114, icon = EDUIcon)%>% 
+  addMarkers(lng=5.342343, lat=50.927946, icon = HCIcon)%>% 
+  addMarkers(lng=5.348785, lat=50.938596, icon = ITIcon)
+EA_map
+```
+
